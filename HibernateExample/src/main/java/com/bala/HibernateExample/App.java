@@ -23,10 +23,10 @@ public class App {
 		Address adr1 = new Address();
 
 		Employ emp1 = new Employ();
-		emp1.setFirstName("Shivani");
-		emp1.setLastName("Mishra");
-		adr1.setCity("Lucknow");
-		adr1.setState("UP");
+		emp1.setFirstName("Shiva");
+		emp1.setLastName("Balaji");
+		adr1.setCity("Vizag");
+		adr1.setState("AP");
 		emp1.setHomeAddress(adr1);
 
 		SessionFactory factory = new Configuration().configure().addAnnotatedClass(Employ.class).buildSessionFactory();
