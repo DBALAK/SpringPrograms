@@ -1,0 +1,36 @@
+Sqoop
+==============================================================================================================================================================
+Hadoop -- RDBMS
+RDBMS ---> Import  tool-- >  HDFS ( Row = record in HDFS)
+HDFS --  > Export tool---> RDBMS
+
+Sqoop Import--
+1)Table -$ sqoop import \--connect jdbc:mysql://localhost/userdb \ --username root \ --table emp --m 1
+2)Target Directory: $ sqoop import \--connect jdbc:mysql://localhost/userdb \ --username root \--table emp_add \--m 1 \--target-dir /queryresult
+3)Inceremental Load: check column last value.
+
+Import All tables:
+sqoop import-all-tables \--connect jdbc:mysql://localhost/userdb \--username root (All tables must have PK field)
+
+Export :
+sqoop export \--connect jdbc:mysql://localhost/db \ --username root \ --table employee \  --export-dir /emp/emp_data
+
+Create Sqoop Job:
+sqoop job --create myjob \ --import \ --connect jdbc:mysql://localhost/db \ --username root \ --table employee --m 1
+
+Verify Job:
+$ sqoop job --list
+
+Inspect Job and Execute Job
+$sqoop job --show myjob , sqoop job --exec myjob
+
+Sqoop Eval:
+User defined queries against respective database servers and preview in console
+1)sqoop eval \ --connect jdbc:mysql://localhost/db \ --username root \  --query “SELECT * FROM employee LIMIT 3”
+2) sqoop eval \ --connect jdbc:mysql://localhost/db \ --username root \  -e “INSERT INTO employee VALUES(1207,‘Raju’,‘UI dev’,15000,‘TP’)”
+
+List databases:
+sqoop list-databases \--connect jdbc:mysql://localhost/ \ --username root
+
+List Tables:
+sqoop list-tables \--connect jdbc:mysql://localhost/userdb \ --username root

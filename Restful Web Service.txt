@@ -1,0 +1,51 @@
+Restful Web Services:
+-Solution to develop distributed application (old tech: CORBA,COM/DCOM,RMI)
+2 types of web services:
+1) SOAP 2) REST
+
+Roy Fielding - author of HTTP protocol,Only HTTP protocol is enough to develop web service.
+1) Resource- access it by URL  
+SOA-Service Oriented Arch,
+ROA-Resource Oriented Arch,design the application based on REST 
+2) Uniform Methods - GET,POST,PUT,DELETE (business funcatinalty is achieved)
+3) Stateless protocol  (Spring-Singleton)
+
+Representational --  They support multiple reprsentation of data (reprsent data) Data format -- XML/JSON.
+State - state keeps on changing time to time, state of system from one m/c to another m/c, eg. customer account details.
+Transfer -- using HTTP protocol.
+
+Need of data format:
+Web based client - HTML,javascript (JSON)
+B2B client - XML (validated easily)
+
+JAX-RS,Spring API support (for JAX-RS support) - develop Restful web services
+
+HATEOAS:
+index.html--> login,welcome,contact.html (URL of home page is enough)
+customer web service -- >  insurance details of customer 
+
+   <customer>
+      <name>hh</name>
+	    <insurance>URL<insurance>
+	  <age>67</age>
+	</customer>
+	
+REST is a concept --- and JAX-RS is a framework
+
+
+Annotations in JAX-RS:
+@Path,@PathParam,@Produces,@Consumes,@GET,@POST,@PUT,@DELETE
+
+PUT- If data is there update it or else create it.
+
+@PathParam:
+http://localhost:5050/rest/university/23/
+
+@QueryParam:
+http://localhost:8089/rest/university?id=2&name=hssdh
+
+@MatrixParam:
+http://localhost:8089/rest/university;id=12;name=fsfsf, anywhere in path.
+
+@FormParam:
+to send html form data.
